@@ -5,3 +5,8 @@ target
 /.idea
 /logs
 /RUNNING_PID
+project/project
+project/target
+tmp
+dist
+.cache

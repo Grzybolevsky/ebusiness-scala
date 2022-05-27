@@ -1,4 +1,3 @@
-GET     /                           controllers.HomeController.index()
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-GET     /count                      controllers.CountController.count()
-GET     /message                    controllers.AsyncController.message()
+GET        /                     controllers.HomeController.index()
+GET        /assets/*file         controllers.Assets.versioned(path="/public", file: Asset)
+GET        /cars                 controllers.CarController.showAll()

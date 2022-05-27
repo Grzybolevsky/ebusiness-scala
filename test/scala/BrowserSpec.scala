@@ -1,3 +1,5 @@
+package scala
+
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice.GuiceOneServerPerTest
 

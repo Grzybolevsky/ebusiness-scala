@@ -8,6 +8,7 @@ lazy val root = (project in file("."))
     name := """ebusiness-scala""",
     libraryDependencies ++= Seq(
       "com.google.inject" % "guice" % "5.1.0",
+      guice,
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
     )
   )
