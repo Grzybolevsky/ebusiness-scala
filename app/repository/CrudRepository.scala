@@ -6,8 +6,8 @@ trait CrudRepository[T <: DbItem] {
 
   protected var db_collection: List[T]
 
-  def add(apiModel: T): Boolean =  if (db_collection.exists(_.id == apiModel.id)) false else {
-    db_collection :+= apiModel
+  def add(dbItem: T): Boolean = if (db_collection.exists(_.id == dbItem.id)) false else {
+    db_collection :+= dbItem
     true
   }
 
@@ -15,8 +15,8 @@ trait CrudRepository[T <: DbItem] {
 
   def findAll(): List[T] = db_collection
 
-  def update(apiModel: T): Boolean = if (db_collection.exists(_.id == apiModel.id)) {
-    db_collection = db_collection.map(x => if (x.id == apiModel.id) apiModel else x)
+  def update(dbItem: T): Boolean = if (db_collection.exists(_.id == dbItem.id)) {
+    db_collection = db_collection.map(x => if (x.id == dbItem.id) dbItem else x)
     true
   } else false
 

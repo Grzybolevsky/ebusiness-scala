@@ -1,6 +1,6 @@
 package models
 
-import play.api.libs.json.{Json, OFormat}
+import repository.dto.CarDbItem
 
 case class Car(
                 id: Int,
@@ -8,8 +8,10 @@ case class Car(
                 year: Int,
                 mileage: Int,
                 horsePower: Int
-              ) extends ApiModel
-
-object Car {
-  implicit val fmt: OFormat[Car] = Json.format[Car]
+              ) extends ApiModel[CarDbItem] {
+  override def toDbItem: CarDbItem = CarDbItem(id = id,
+    carModelId = carModel.id,
+    year = year,
+    mileage = mileage,
+    horsePower = horsePower)
 }

@@ -1,6 +1,7 @@
 package models
 
-import play.api.libs.json.{Json, OFormat, Reads, Writes}
+import play.api.libs.json.{Reads, Writes}
+import repository.dto.CarModelDbItem
 
 object ModelType extends Enumeration {
   type Type = Value
@@ -10,15 +11,16 @@ object ModelType extends Enumeration {
   implicit val myEnumWrites = Writes.enumNameWrites
 }
 
-import ModelType._
+import models.ModelType._
 
 case class CarModel(
                      id: Int,
                      manufacturer: CarManufacturer,
                      name: String,
                      modelType: Type
-                   ) extends ApiModel
-
-object CarModel {
-  implicit val fmt: OFormat[CarModel] = Json.format[CarModel]
+                   ) extends ApiModel[CarModelDbItem] {
+  override def toDbItem: CarModelDbItem = CarModelDbItem(id = id,
+    manufacturerId = manufacturer.id,
+    name = name,
+    modelType = modelType)
 }

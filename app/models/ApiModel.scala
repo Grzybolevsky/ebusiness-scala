@@ -1,5 +1,9 @@
 package models
 
-trait ApiModel {
+import repository.dto.DbItem
+
+trait ApiModel[U <: DbItem] {
   val id: Int
+
+  def toDbItem: U
 }

@@ -1,5 +1,7 @@
 package models
 
+import repository.dto.CarSellOfferDbItem
+
 import java.time.LocalDate
 
 case class CarSellOffer(
@@ -7,4 +9,6 @@ case class CarSellOffer(
                          car: Car,
                          date: LocalDate,
                          price: BigDecimal
-                       ) extends ApiModel
+                       ) extends ApiModel[CarSellOfferDbItem] {
+  override def toDbItem: CarSellOfferDbItem = CarSellOfferDbItem(id, car.id, date, price)
+}

@@ -1,7 +1,7 @@
 package repository
 
+import models.ModelType._
 import repository.dto.CarModelDbItem
-import repository.dto.ModelType._
 
 import javax.inject.Singleton
 

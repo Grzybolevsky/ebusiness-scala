@@ -7,8 +7,15 @@ lazy val root = (project in file("."))
   .settings(
     name := """ebusiness-scala""",
     libraryDependencies ++= Seq(
-      "com.google.inject" % "guice" % "5.1.0",
       guice,
+      "com.fasterxml.jackson.core" % "jackson-databind" % "2.11.4",
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.11.4",
+      "io.lemonlabs" %% "scala-uri" % "4.0.2",
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
+    ),
+    scalacOptions ++= Seq(
+      "-feature",
+      "-deprecation",
+      "-Xfatal-warnings"
     )
   )

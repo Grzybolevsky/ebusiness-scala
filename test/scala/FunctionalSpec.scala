@@ -10,7 +10,7 @@ class FunctionalSpec extends PlaySpec with GuiceOneAppPerSuite {
 
   "Routes" should {
     "send 404 on a bad request" in {
-      route(app, FakeRequest(GET, "/boum")).map(status(_)) mustBe Some(NOT_FOUND)
+      route(app, FakeRequest(GET, "/bad")).map(status(_)) mustBe Some(NOT_FOUND)
     }
 
     "send 200 on a good request" in {
@@ -24,15 +24,6 @@ class FunctionalSpec extends PlaySpec with GuiceOneAppPerSuite {
       status(home) mustBe Status.OK
       contentType(home) mustBe Some("text/html")
       contentAsString(home) must include("Your new application is ready.")
-    }
-
-  }
-
-  "CountController" should {
-    "return an increasing count" in {
-      contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "0"
-      contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "1"
-      contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "2"
     }
   }
 }
