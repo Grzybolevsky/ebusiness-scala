@@ -6,7 +6,8 @@ import repository.dto.CarModelDbItem
 import javax.inject.Singleton
 
 @Singleton
-class CarModelRepository extends CrudRepository[CarModelDbItem] {
+class CarModelRepository
+  extends CrudRepository[CarModelDbItem] {
   var db_collection: List[CarModelDbItem] = List(
     dto.CarModelDbItem(1, 1, "A-class", Sedan),
     dto.CarModelDbItem(2, 1, "A-class", Hatchback),

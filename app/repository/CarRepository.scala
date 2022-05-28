@@ -5,7 +5,8 @@ import repository.dto.CarDbItem
 import javax.inject.Singleton
 
 @Singleton
-class CarRepository extends CrudRepository[CarDbItem] {
+class CarRepository
+  extends CrudRepository[CarDbItem] {
   protected var db_collection: List[CarDbItem] = List(
     CarDbItem(1, 1, 2020, 50_000, 370),
     CarDbItem(2, 2, 2008, 250_000, 110),

@@ -10,9 +10,9 @@ abstract class BaseService[T <: ApiModel[Y], Y <: DbItem](repository: CrudReposi
 
   def find(id: Int): Option[T] = repository.find(id).map(toDomain)
 
-  def add(apiModel: T): Boolean = repository.add(apiModel.toDbItem)
+  def add(apiModel: Y): Boolean = repository.add(apiModel)
 
-  def update(apiModel: T): Boolean = repository.update(apiModel.toDbItem)
+  def update(apiModel: Y): Boolean = repository.update(apiModel)
 
   def delete(id: Int): Boolean = repository.delete(id)
 

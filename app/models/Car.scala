@@ -1,5 +1,6 @@
 package models
 
+import play.api.libs.json.{Json, OFormat}
 import repository.dto.CarDbItem
 
 case class Car(
@@ -14,4 +15,8 @@ case class Car(
     year = year,
     mileage = mileage,
     horsePower = horsePower)
+}
+
+object Car {
+  implicit val fmt: OFormat[Car] = Json.format[Car]
 }

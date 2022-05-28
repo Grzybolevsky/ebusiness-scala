@@ -1,5 +1,5 @@
 GET        /assets/*file         controllers.Assets.versioned(path="/public", file: Asset)
-->        /cars                 routers.CarsRouter
-->        /offers               routers.OffersRouter
-->        /manufacturers        routers.ManufacturersRouter
-->        /models               routers.ModelsRouter
+->         /cars                 routers.CarsRouter
+->         /offers               routers.OffersRouter
+->         /manufacturers        routers.ManufacturersRouter
+->         /models               routers.ModelsRouter
